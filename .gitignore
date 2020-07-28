@@ -1,0 +1,10 @@
+__pycache__/
+CHECKPOINTS
+build/
+*IMAGES/
+random_test*.py
+*.txt
+*.pkl
+*.png
+*.prototxt
+.PREVIOUS
