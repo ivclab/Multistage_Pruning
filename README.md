@@ -71,7 +71,7 @@ python evaluate_pruned_networks.py --network_name {NETWORK} --dataset_name Image
 ## Citation
 Please cite following paper if these codes help your research:
 
-    @inproceedings{guyon2015design,
+    @inproceedings{tu2020pruning,
     title={Pruning Depthwise Separable Convolutions for MobileNet Compression},
     author={Tu, Cheng-Hao and Lee, Jia-Hong and Chan, Yi-Ming and Chen, Chu-Song},
     booktitle={2020 International Joint Conference on Neural Networks (IJCNN)},
