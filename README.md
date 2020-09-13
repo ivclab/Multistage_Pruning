@@ -68,9 +68,16 @@ Please use the following command for evaluating the accuracy, number of flops an
 python evaluate_pruned_networks.py --network_name {NETWORK} --dataset_name ImageNet --target_mode {PRUNE_STAGE}-magnitude --prune_ratio {PRUNE_RATIO}
 ```
 
+## Citation
+Please cite following paper if these codes help your research:
 
-## Citation 
-
+    @inproceedings{guyon2015design,
+    title={Pruning Depthwise Separable Convolutions for MobileNet Compression},
+    author={Tu, Cheng-Hao and Lee, Jia-Hong and Chan, Yi-Ming and Chen, Chu-Song},
+    booktitle={2020 International Joint Conference on Neural Networks (IJCNN)},
+    year={2020},
+    organization={IEEE}
+    }
 
 ## Contact 
 Please feel free to leave suggestions or comments to [Cheng-Hao Tu](andytu28@iis.sinica.edu.tw), [Jia-Hong Lee](honghenry.lee@iis.sinica.edu.tw), [Yi-Ming Chan](yiming@iis.sinica.edu.tw), [Chu-Song Chen](song@iis.sinica.edu.tw)
