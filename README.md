@@ -75,6 +75,7 @@ Please cite following paper if these codes help your research:
     title={Pruning Depthwise Separable Convolutions for MobileNet Compression},
     author={Tu, Cheng-Hao and Lee, Jia-Hong and Chan, Yi-Ming and Chen, Chu-Song},
     booktitle={2020 International Joint Conference on Neural Networks (IJCNN)},
+    pages={1--8},
     year={2020},
     organization={IEEE}
     }
