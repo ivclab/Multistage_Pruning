@@ -57,6 +57,7 @@ def main(*args, **kwargs):
     dataset_name = args.dataset_name
     target_mode = args.target_mode
     prune_ratio = args.prune_ratio
+    assert(prune_ratio > 0.0), 'Only evaluate networks with prune_ratios > 0.0'
 
     image_size  = (224, 224)
     batch_size  = 128
@@ -154,8 +155,8 @@ def main(*args, **kwargs):
     print('Test Acc@1: {:.4f}, Test Acc@5: {:.4f}'.format(*test_acc))
 
     images = torch.randn(*((1, 3)+image_size)).to(device)
-    flops1, params1 = profile(origin_model, inputs=(images,))
-    flops2, params2 = profile(pruned_model, inputs=(images,))
+    flops1, params1 = profile(origin_model, inputs=(images,), verbose=False)
+    flops2, params2 = profile(pruned_model, inputs=(images,), verbose=False)
 
     print('Full Network FLOPs: {:.4f} M, Params: {:.4f} M'.format(flops1/(1000**2), params1/(1000**2)))
     print('Pruned Network FLOPs: {:.4f} M, Params: {:.4f} M'.format(flops2/(1000**2), params2/(1000**2)))

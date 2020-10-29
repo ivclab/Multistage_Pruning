@@ -14,6 +14,8 @@ Deep convolutional neural networks are good at accuracy while bad at efficiency.
 * torch==1.4.0
 * torchvision==0.5.0
 * tqdm==4.31.1
+* networkx==2.4
+* graphviz==0.13
 * [thop](https://github.com/Lyken17/pytorch-OpCounter)
 
 
@@ -38,7 +40,7 @@ and
 python train.py --config_name MobileNetV2_ImageNet --target_mode baseline
 ```
 
-The first command will train MobileNetV1 fraom scratch on ImageNet, and it may take a while. The trained baseline MobileNetV1 can be downloaded [here](). 
+The first command will train MobileNetV1 fraom scratch on ImageNet, and it may take a while. The trained baseline MobileNetV1 can be downloaded [here](https://drive.google.com/file/d/1SYzK8Hocwc_-uxiAYBeOzGg8eona8C8R/view?usp=sharing). 
 Since Pytorch already provides pretrained MobileNetV2 on ImageNet, the second command simply loads the pretrained model and evaluate its accuracy.
 
 
@@ -54,10 +56,10 @@ We provide the pruned MobileNetV1 with various pruning ratios as follows:
 
 | Model | Top-1 Accuracy | FLOPs | Params | 
 |:---:|:---:|:---:|:---:|
-| [MobileNetV1_1.00x]() | 70.69 | 579.8479 M | 4.2320 M |
-| [MobileNetV1_0.75x]() | 68.84 | 448.3615 M | 3.3597 M |
-| [MobileNetV1_0.50x]() | 64.15 | 333.7325 M | 2.5856 M |
-| [MobileNetV1_0.25x]() | 51.62 | 235.9626 M | 1.9095 M |
+| [MobileNetV1_1.00x](https://drive.google.com/file/d/1qXOdg-nTGKWR3-qnaFknN_bWUfoU0jWH/view?usp=sharing) | 70.69 | 579.8479 M | 4.2320 M |
+| [MobileNetV1_0.75x](https://drive.google.com/file/d/1Cwl848hz_8IbRXAP70vnSFnLvgi3ux_x/view?usp=sharing) | 68.84 | 333.7325 M | 2.5856 M |
+| [MobileNetV1_0.50x](https://drive.google.com/file/d/1Jbp_rPfWxo7OOi2NDVgYTfWi3zcS5Oim/view?usp=sharing) | 64.15 | 155.0518 M | 1.3316 M |
+| [MobileNetV1_0.25x](https://drive.google.com/file/d/1TBKaYSwphzIt3StXBCC1ZAbebrR_dRN2/view?usp=sharing) | 51.62 |  43.8076 M | 0.4701 M |
 
 
 ### Evaluate the pruned models 
@@ -66,6 +68,20 @@ Please use the following command for evaluating the accuracy, number of flops an
 
 ```
 python evaluate_pruned_networks.py --network_name {NETWORK} --dataset_name ImageNet --target_mode {PRUNE_STAGE}-magnitude --prune_ratio {PRUNE_RATIO}
+```
+
+### Evaluate the unpruned models 
+
+To evaluate the unpruned models (baseline models or models with 0.0 pruning ratio), please use the following command. 
+
+```
+python evaluate_unpruned_networks.py --network_name {NETWORK} --dataset_name ImageNet --chkpt_path {CHKPT_PATH}
+```
+
+The {NETWORK} could be MobileNetV1 or MobileNetV2, and {CHKPT_PATH} is the path of the target checkpoint. See the following example that evaluates the ImageNet-trained baseline MobileNetV1 provided above. Note that we place the downloaded checkpoint `baseline.pth` under `CHECKPOINTS/MobileNetV1_ImageNet/baseline/`. 
+
+```
+python evaluate_unpruned_networks.py --network_name MobileNetV1 --dataset_name ImageNet --chkpt_path CHECKPOINTS/MobileNetV1_ImageNet/baseline/baseline.pth
 ```
 
 ## Citation
