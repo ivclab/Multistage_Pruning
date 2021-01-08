@@ -1,9 +1,10 @@
 # Multistage_Pruning
 
-This is an official Pytorch implementation of Pruning Depthwise Separable Convolutions for MobileNet Compression 
+This is an official Pytorch implementation of [Pruning Depthwise Separable Convolutions for MobileNet Compression](http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/IEEE_WCCI_2020/IJCNN/Papers/N-21727.pdf) 
 
-Created by Cheng-Hao Tu, Jia-Hong Lee, Yi-Ming Chan and Chu-Song Chen 
+Created by Cheng-Hao Tu, Jia-Hong Lee, Yi-Ming Chan and Chu-Song Chen
 
+The code is released for academic research use only. For commercial use, please contact Prof. Chu-Song Chen(chusong@csie.ntu.edu.tw).
 
 ## Introduction 
 Deep convolutional neural networks are good at accuracy while bad at efficiency. To improve the inference speed, two directions have been explored in the past, lightweight model designing and network weight pruning. Lightweight models have been proposed to improve the speed with good enough accuracy. It is, however, not trivial if we can further speed up these “compact” models by weight pruning. In this paper, we present a technique to gradually prune the depthwise separable convolution networks, such as MobileNet, for improving the speed of this kind of “dense” network. When pruning depthwise separable convolutions, we need to consider more structural constraints to ensure the speedup of inference. Instead of pruning the model with the desired ratio in one stage, the proposed multi-stage gradual pruning approach can stably prune the filters with a finer pruning ratio. Our method achieves satisfiable speedup with little accuracy drop for MobileNets. 
@@ -97,4 +98,4 @@ Please cite following paper if these codes help your research:
     }
 
 ## Contact 
-Please feel free to leave suggestions or comments to [Cheng-Hao Tu](andytu28@iis.sinica.edu.tw), [Jia-Hong Lee](honghenry.lee@iis.sinica.edu.tw), [Yi-Ming Chan](yiming@iis.sinica.edu.tw), [Chu-Song Chen](song@iis.sinica.edu.tw)
+Please feel free to leave suggestions or comments to Cheng-Hao Tu(andytu28@iis.sinica.edu.tw), Jia-Hong Lee(honghenry.lee@iis.sinica.edu.tw), Yi-Ming Chan(yiming@iis.sinica.edu.tw), Chu-Song Chen(chusong@csie.ntu.edu.tw)
